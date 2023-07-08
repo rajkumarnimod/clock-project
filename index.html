@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', Verdana, sans-serif;
+    }
+
+    #clock {
+      width: 50%;
+      height: auto;
+      margin: 100px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    #hours,
+    #minuts,
+    #second {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      font-weight: bold;
+      justify-content: center;
+      align-items: center;
+      background-color: #900C3F;
+      margin-left: 10px;
+      border: 5px solid #FF5733;
+      outline: 5px solid #FFC300;
+      font-size: 45px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="clock">
+    <div id="hours"></div>
+    <div id="minuts"></div>
+    <div id="second"></div>
+  </div>
+
+
+  <script>
+
+    setInterval(() => {
+      var hours = document.getElementById("hours");
+      var minuts = document.getElementById("minuts");
+      var second = document.getElementById("second");
+
+      var h = new Date().getHours();
+      var m = new Date().getMinutes();
+      var s = new Date().getSeconds();
+
+
+      if (h < 10) {
+        h = "0" + h;
+      }
+      if (m < 10) {
+        m = "0" + m;
+      }
+      if (s < 10) {
+        s = "0" + s;
+      }
+
+      if (h > 12) {
+        h = h - 12;
+      }
+
+      hours.innerHTML = h;
+      minuts.innerHTML = m;
+      second.innerHTML = s;
+    })
+
+  
+  </script>
+</body>
+
+</html>
